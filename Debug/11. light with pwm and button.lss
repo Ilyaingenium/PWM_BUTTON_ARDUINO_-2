@@ -1,0 +1,340 @@
+
+11. light with pwm and button.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000252  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001de  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000004  00800100  00800100  00000252  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000252  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000284  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  000002c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000077e  00000000  00000000  000002e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000699  00000000  00000000  00000a66  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000425  00000000  00000000  000010ff  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000034  00000000  00000000  00001524  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00006d50  00000000  00000000  00001558  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000008c  00000000  00000000  000082a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000018  00000000  00000000  00008334  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  00000223  00000000  00000000  0000834c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	33 c0       	rjmp	.+102    	; 0x68 <__ctors_end>
+   2:	00 00       	nop
+   4:	41 c0       	rjmp	.+130    	; 0x88 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	3f c0       	rjmp	.+126    	; 0x88 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	3d c0       	rjmp	.+122    	; 0x88 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	3b c0       	rjmp	.+118    	; 0x88 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	39 c0       	rjmp	.+114    	; 0x88 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	37 c0       	rjmp	.+110    	; 0x88 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	35 c0       	rjmp	.+106    	; 0x88 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	33 c0       	rjmp	.+102    	; 0x88 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	31 c0       	rjmp	.+98     	; 0x88 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	2f c0       	rjmp	.+94     	; 0x88 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	2d c0       	rjmp	.+90     	; 0x88 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	2b c0       	rjmp	.+86     	; 0x88 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	29 c0       	rjmp	.+82     	; 0x88 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	27 c0       	rjmp	.+78     	; 0x88 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	25 c0       	rjmp	.+74     	; 0x88 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	23 c0       	rjmp	.+70     	; 0x88 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	21 c0       	rjmp	.+66     	; 0x88 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	1f c0       	rjmp	.+62     	; 0x88 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	1d c0       	rjmp	.+58     	; 0x88 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	1b c0       	rjmp	.+54     	; 0x88 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	19 c0       	rjmp	.+50     	; 0x88 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	17 c0       	rjmp	.+46     	; 0x88 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	15 c0       	rjmp	.+42     	; 0x88 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	13 c0       	rjmp	.+38     	; 0x88 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	11 c0       	rjmp	.+34     	; 0x88 <__bad_interrupt>
+	...
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a4 30       	cpi	r26, 0x04	; 4
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	2e d0       	rcall	.+92     	; 0xe2 <main>
+  86:	a9 c0       	rjmp	.+338    	; 0x1da <_exit>
+
+00000088 <__bad_interrupt>:
+  88:	bb cf       	rjmp	.-138    	; 0x0 <__vectors>
+
+0000008a <PWM_settings>:
+long pwm_1 = 0;
+
+void PWM_settings (void)
+{
+	
+	TCCR1A |= (1<<COM1A1) | (0<<COM1A0); // НЕинвертирующая ШИМ
+  8a:	e0 e8       	ldi	r30, 0x80	; 128
+  8c:	f0 e0       	ldi	r31, 0x00	; 0
+  8e:	80 81       	ld	r24, Z
+  90:	80 68       	ori	r24, 0x80	; 128
+  92:	80 83       	st	Z, r24
+	
+	TCCR1A |= (1<<WGM10); // 10 бит ШИМ, быстро действ.
+  94:	80 81       	ld	r24, Z
+  96:	81 60       	ori	r24, 0x01	; 1
+  98:	80 83       	st	Z, r24
+	TCCR1A |= (1<<WGM11); // 10 бит ШИМ, быстро действ.
+  9a:	80 81       	ld	r24, Z
+  9c:	82 60       	ori	r24, 0x02	; 2
+  9e:	80 83       	st	Z, r24
+	TCCR1B |= (1<<WGM12); // 10 бит ШИМ, быстро действ.
+  a0:	e1 e8       	ldi	r30, 0x81	; 129
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	80 81       	ld	r24, Z
+  a6:	88 60       	ori	r24, 0x08	; 8
+  a8:	80 83       	st	Z, r24
+	TCCR1B &= ~(1<<WGM13); // 10 бит ШИМ, быстро действ.
+  aa:	80 81       	ld	r24, Z
+  ac:	8f 7e       	andi	r24, 0xEF	; 239
+  ae:	80 83       	st	Z, r24
+        	
+	TCCR1B |= (1<<CS11); // Делим частоту МК на 8
+  b0:	80 81       	ld	r24, Z
+  b2:	82 60       	ori	r24, 0x02	; 2
+  b4:	80 83       	st	Z, r24
+	TCCR1B &= ~((1<<CS10)|(1<<CS12)); // Делим частоту МК на 8 = 125000
+  b6:	80 81       	ld	r24, Z
+  b8:	8a 7f       	andi	r24, 0xFA	; 250
+  ba:	80 83       	st	Z, r24
+	                                  // timer counter control register (0 pin B-настраиваемый, 8-битный) делим частоту счетчика на (8*1024)/1000000=0,008 сек . Частота = 1024\0,008
+	                                  // 1000000 / (8*1024)=122 частота работы шим
+ 	  
+	OCR1A = 111;  // задающее напряжение
+  bc:	e8 e8       	ldi	r30, 0x88	; 136
+  be:	f0 e0       	ldi	r31, 0x00	; 0
+  c0:	8f e6       	ldi	r24, 0x6F	; 111
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	91 83       	std	Z+1, r25	; 0x01
+  c6:	80 83       	st	Z, r24
+ 	pwm_1 = OCR1A;
+  c8:	80 81       	ld	r24, Z
+  ca:	91 81       	ldd	r25, Z+1	; 0x01
+  cc:	a0 e0       	ldi	r26, 0x00	; 0
+  ce:	b0 e0       	ldi	r27, 0x00	; 0
+  d0:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+  d4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+  d8:	a0 93 02 01 	sts	0x0102, r26	; 0x800102 <_edata+0x2>
+  dc:	b0 93 03 01 	sts	0x0103, r27	; 0x800103 <_edata+0x3>
+  e0:	08 95       	ret
+
+000000e2 <main>:
+
+int main(void)
+  {
+
+//Выходы ШИМ
+DDRB |= (1<<1);
+  e2:	21 9a       	sbi	0x04, 1	; 4
+
+ //Кнопки
+ DDRD &= ~((1<<3) | (1<<2));
+  e4:	8a b1       	in	r24, 0x0a	; 10
+  e6:	83 7f       	andi	r24, 0xF3	; 243
+  e8:	8a b9       	out	0x0a, r24	; 10
+ PORTD |= (1<<3) | (1<<2);
+  ea:	8b b1       	in	r24, 0x0b	; 11
+  ec:	8c 60       	ori	r24, 0x0C	; 12
+  ee:	8b b9       	out	0x0b, r24	; 11
+
+PWM_settings ();   
+  f0:	cc df       	rcall	.-104    	; 0x8a <PWM_settings>
+    {
+        pwm_1--;
+        pwm_1 = (pwm_1-20);
+        _delay_ms (30);
+        if (pwm_1 <=0) pwm_1=0;
+        OCR1A = pwm_1 ;
+  f2:	c0 e0       	ldi	r28, 0x00	; 0
+  f4:	d1 e0       	ldi	r29, 0x01	; 1
+  f6:	e8 e8       	ldi	r30, 0x88	; 136
+  f8:	f0 e0       	ldi	r31, 0x00	; 0
+    while(!(PIND&(1<<2)))
+    {
+        pwm_1++;
+        pwm_1 = (pwm_1+20);
+        _delay_ms (30);
+        if (pwm_1 >=1023) pwm_1=1023;
+  fa:	4f ef       	ldi	r20, 0xFF	; 255
+  fc:	53 e0       	ldi	r21, 0x03	; 3
+  fe:	60 e0       	ldi	r22, 0x00	; 0
+ 100:	70 e0       	ldi	r23, 0x00	; 0
+ 102:	32 c0       	rjmp	.+100    	; 0x168 <main+0x86>
+{
+    
+    while(!(PIND&(1<<2)))
+    {
+        pwm_1++;
+        pwm_1 = (pwm_1+20);
+ 104:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 108:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 10c:	a0 91 02 01 	lds	r26, 0x0102	; 0x800102 <_edata+0x2>
+ 110:	b0 91 03 01 	lds	r27, 0x0103	; 0x800103 <_edata+0x3>
+ 114:	45 96       	adiw	r24, 0x15	; 21
+ 116:	a1 1d       	adc	r26, r1
+ 118:	b1 1d       	adc	r27, r1
+ 11a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 11e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 122:	a0 93 02 01 	sts	0x0102, r26	; 0x800102 <_edata+0x2>
+ 126:	b0 93 03 01 	sts	0x0103, r27	; 0x800103 <_edata+0x3>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 12a:	8b e4       	ldi	r24, 0x4B	; 75
+ 12c:	9d e1       	ldi	r25, 0x1D	; 29
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <main+0x4c>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <main+0x52>
+ 134:	00 00       	nop
+        _delay_ms (30);
+        if (pwm_1 >=1023) pwm_1=1023;
+ 136:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 13a:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 13e:	a0 91 02 01 	lds	r26, 0x0102	; 0x800102 <_edata+0x2>
+ 142:	b0 91 03 01 	lds	r27, 0x0103	; 0x800103 <_edata+0x3>
+ 146:	8f 3f       	cpi	r24, 0xFF	; 255
+ 148:	93 40       	sbci	r25, 0x03	; 3
+ 14a:	a1 05       	cpc	r26, r1
+ 14c:	b1 05       	cpc	r27, r1
+ 14e:	44 f0       	brlt	.+16     	; 0x160 <main+0x7e>
+ 150:	40 93 00 01 	sts	0x0100, r20	; 0x800100 <_edata>
+ 154:	50 93 01 01 	sts	0x0101, r21	; 0x800101 <_edata+0x1>
+ 158:	60 93 02 01 	sts	0x0102, r22	; 0x800102 <_edata+0x2>
+ 15c:	70 93 03 01 	sts	0x0103, r23	; 0x800103 <_edata+0x3>
+        OCR1A = pwm_1 ;
+ 160:	88 81       	ld	r24, Y
+ 162:	99 81       	ldd	r25, Y+1	; 0x01
+ 164:	91 83       	std	Z+1, r25	; 0x01
+ 166:	80 83       	st	Z, r24
+PWM_settings ();   
+ 
+   while (1)
+{
+    
+    while(!(PIND&(1<<2)))
+ 168:	4a 9b       	sbis	0x09, 2	; 9
+ 16a:	cc cf       	rjmp	.-104    	; 0x104 <main+0x22>
+//        if (OCR1A >=1023) OCR1A=1023;
+      
+        
+     }
+        
+    while(!(PIND&(1<<3)))
+ 16c:	4b 99       	sbic	0x09, 3	; 9
+ 16e:	fc cf       	rjmp	.-8      	; 0x168 <main+0x86>
+    {
+        pwm_1--;
+        pwm_1 = (pwm_1-20);
+ 170:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 174:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 178:	a0 91 02 01 	lds	r26, 0x0102	; 0x800102 <_edata+0x2>
+ 17c:	b0 91 03 01 	lds	r27, 0x0103	; 0x800103 <_edata+0x3>
+ 180:	45 97       	sbiw	r24, 0x15	; 21
+ 182:	a1 09       	sbc	r26, r1
+ 184:	b1 09       	sbc	r27, r1
+ 186:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 18a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 18e:	a0 93 02 01 	sts	0x0102, r26	; 0x800102 <_edata+0x2>
+ 192:	b0 93 03 01 	sts	0x0103, r27	; 0x800103 <_edata+0x3>
+ 196:	8b e4       	ldi	r24, 0x4B	; 75
+ 198:	9d e1       	ldi	r25, 0x1D	; 29
+ 19a:	01 97       	sbiw	r24, 0x01	; 1
+ 19c:	f1 f7       	brne	.-4      	; 0x19a <main+0xb8>
+ 19e:	00 c0       	rjmp	.+0      	; 0x1a0 <main+0xbe>
+ 1a0:	00 00       	nop
+        _delay_ms (30);
+        if (pwm_1 <=0) pwm_1=0;
+ 1a2:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 1a6:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 1aa:	a0 91 02 01 	lds	r26, 0x0102	; 0x800102 <_edata+0x2>
+ 1ae:	b0 91 03 01 	lds	r27, 0x0103	; 0x800103 <_edata+0x3>
+ 1b2:	18 16       	cp	r1, r24
+ 1b4:	19 06       	cpc	r1, r25
+ 1b6:	1a 06       	cpc	r1, r26
+ 1b8:	1b 06       	cpc	r1, r27
+ 1ba:	44 f0       	brlt	.+16     	; 0x1cc <main+0xea>
+ 1bc:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+ 1c0:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <_edata+0x1>
+ 1c4:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <_edata+0x2>
+ 1c8:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <_edata+0x3>
+        OCR1A = pwm_1 ;
+ 1cc:	88 81       	ld	r24, Y
+ 1ce:	99 81       	ldd	r25, Y+1	; 0x01
+ 1d0:	91 83       	std	Z+1, r25	; 0x01
+ 1d2:	80 83       	st	Z, r24
+//        if (OCR1A >=1023) OCR1A=1023;
+      
+        
+     }
+        
+    while(!(PIND&(1<<3)))
+ 1d4:	4b 9b       	sbis	0x09, 3	; 9
+ 1d6:	cc cf       	rjmp	.-104    	; 0x170 <main+0x8e>
+ 1d8:	c7 cf       	rjmp	.-114    	; 0x168 <main+0x86>
+
+000001da <_exit>:
+ 1da:	f8 94       	cli
+
+000001dc <__stop_program>:
+ 1dc:	ff cf       	rjmp	.-2      	; 0x1dc <__stop_program>
